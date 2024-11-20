@@ -18,11 +18,12 @@ public class HomeController {
     @Autowired
     BaiKiemTraRepo baiKiemTraRepo;
 
-    @GetMapping("/")
+    @GetMapping("/hien-thi")
     public String hienThi(Model model, @RequestParam(value = "page",defaultValue = "0") Integer page){
         Pageable pageable = PageRequest.of(page,9);
         List<BaiKiemTra> baiKiemTra = baiKiemTraRepo.getAllBKT(pageable);
         model.addAttribute("listBKT",baiKiemTra);
+        model.addAttribute("p",page);
         return "hienThi";
     }
 

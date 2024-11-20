@@ -27,9 +27,10 @@
             <td>
                 <a th:href="@{/lam-bai/{id}(id=${bkt.id})}">Lam bai</a>
             </td>
-
         </tr>
     </tbody>
 </table>
+<a th:href="@{/hien-thi?(page=${p-1})}">trang truoc</a>
+<a th:href="@{/hien-thi?(page=${p+1})}">trang sau</a>
 </body>
 </html>
