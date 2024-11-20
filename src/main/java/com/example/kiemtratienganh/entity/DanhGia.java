@@ -18,35 +18,20 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "bai_kiem_tra")
-public class bai_kiem_tra {
+@Table(name = "DanhGia")
+public class DanhGia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
     @Column
-    private Integer so_cau_hoi;
+    private Double sao;
 
     @Column
-    private Double diem_toi_da;
+    private String danh_gia;
 
-    @Column
-    private Double diem_so;
-
-    @Column
-    private String thoi_gian_lam_bai;
-
-    @JoinColumn(name = "id_danh_gia")
+    @JoinColumn(name = "id_nguoi_dung")
     @ManyToOne
-    private danh_gia danh_gia;
-
-    @JoinColumn(name = "id_cau_hoi")
-    @ManyToOne
-    private dap_an dap_an;
-
-    @JoinColumn(name = "id_nguoi_lam")
-    @ManyToOne
-    private nguoi_dung nguoi_dung;
-
+    private NguoiDung nguoi_dung;
 }

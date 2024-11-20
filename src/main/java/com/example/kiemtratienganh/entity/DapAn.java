@@ -16,22 +16,31 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "nguoi_dung")
-public class nguoi_dung {
+@Table(name = "DapAn")
+public class DapAn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
     @Column
-    private String tai_khoan;
+    private String cau_hoi;
 
     @Column
-    private String mat_khau;
+    private String dap_an_1;
 
     @Column
-    private String ho_ten;
+    private String dap_an_2;
 
     @Column
-    private String eamil;
+    private String dap_an_3;
+
+    @Column
+    private String dap_an_4;
+
+    @Column
+    private String dap_an_chinh_xac;
+
+    @Column
+    private String dap_an_da_chon;
 }

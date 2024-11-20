@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,20 +16,22 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "danh_gia")
-public class danh_gia {
+@Table(name = "NguoiDung")
+public class NguoiDung {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
     @Column
-    private Double sao;
+    private String tai_khoan;
 
     @Column
-    private String danh_gia;
+    private String mat_khau;
 
-    @JoinColumn(name = "id_nguoi_dung")
-    @ManyToOne
-    private nguoi_dung nguoi_dung;
+    @Column
+    private String ho_ten;
+
+    @Column
+    private String eamil;
 }
