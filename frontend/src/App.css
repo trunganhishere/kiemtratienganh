@@ -1,0 +1,96 @@
+/* App.css */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.test-card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.test-card {
+  border: 1px solid #d1d1d1;
+  padding: 20px;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.test-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.test-card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.start-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+}
+/* Thành tích */
+
+
+/* App.css */
+.achievement-list {
+  display: flex;
+  flex-direction: row; /* Xếp các mục thành tích ngang */
+  justify-content: center; /* Căn giữa các mục thành tích */
+  gap: 20px; /* Khoảng cách giữa các mục */
+}
+
+.achievement-card {
+  border: 1px solid #d1d1d1;
+  padding: 20px;
+  border-radius: 8px;
+  width: 200px; /* Điều chỉnh chiều rộng của các thẻ thành tích */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.achievement-card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #76c7c0;
+  border-radius: 5px;
+}
+
+.achievement-card p:last-child {
+  font-weight: bold;
+}
+
