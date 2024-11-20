@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,31 +18,35 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "dap_an")
-public class dap_an {
+@Table(name = "BaiKiemTra")
+public class BaiKiemTra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
     @Column
-    private String cau_hoi;
+    private Integer so_cau_hoi;
 
     @Column
-    private String dap_an_1;
+    private Double diem_toi_da;
 
     @Column
-    private String dap_an_2;
+    private Double diem_so;
 
     @Column
-    private String dap_an_3;
+    private String thoi_gian_lam_bai;
 
-    @Column
-    private String dap_an_4;
+    @JoinColumn(name = "id_danh_gia")
+    @ManyToOne
+    private DanhGia danh_gia;
 
-    @Column
-    private String dap_an_chinh_xac;
+    @JoinColumn(name = "id_cau_hoi")
+    @ManyToOne
+    private DapAn dap_an;
 
-    @Column
-    private String dap_an_da_chon;
+    @JoinColumn(name = "id_nguoi_lam")
+    @ManyToOne
+    private NguoiDung nguoi_dung;
+
 }
