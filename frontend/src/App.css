@@ -1,96 +1,140 @@
-/* App.css */
 .container {
   text-align: center;
-  padding: 20px;
+  padding: 40px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
 }
 
 .title {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  color: #333;
 }
 
 .test-card-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
 .test-card {
-  border: 1px solid #d1d1d1;
-  padding: 20px;
-  border-radius: 8px;
-  width: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 25px;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.test-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .test-card h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #444;
 }
 
 .test-card p {
   font-size: 14px;
+  color: #666;
   margin: 5px 0;
 }
 
 .start-button {
   margin-top: 15px;
-  padding: 10px 15px;
+  padding: 12px 18px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .start-button:hover {
   background-color: #0056b3;
 }
-/* Thành tích */
 
-
-/* App.css */
 .achievement-list {
   display: flex;
-  flex-direction: row; /* Xếp các mục thành tích ngang */
-  justify-content: center; /* Căn giữa các mục thành tích */
-  gap: 20px; /* Khoảng cách giữa các mục */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
 .achievement-card {
-  border: 1px solid #d1d1d1;
-  padding: 20px;
-  border-radius: 8px;
-  width: 200px; /* Điều chỉnh chiều rộng của các thẻ thành tích */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 25px;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.achievement-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.achievement-card p {
-  font-size: 14px;
-  margin: 5px 0;
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .progress-bar-container {
   width: 100%;
-  height: 20px;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 10px;
+  margin: 10px 0;
 }
 
 .progress-bar {
   height: 100%;
-  background-color: #76c7c0;
-  border-radius: 5px;
+  background-color: #28a745;
 }
 
-.achievement-card p:last-child {
+.reward {
+  margin-top: 10px;
+  font-size: 14px;
   font-weight: bold;
 }
 
+.create-job-button {
+  margin-top: 20px;
+  padding: 12px 18px;
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.create-job-button:hover {
+  background-color: #e0a800;
+}
+
+.access-advanced-button,
+.register-tutor-button {
+  margin-top: 15px;
+  padding: 12px 18px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.access-advanced-button:hover,
+.register-tutor-button:hover {
+  background-color: #218838;
+}
