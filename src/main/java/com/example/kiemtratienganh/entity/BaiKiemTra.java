@@ -29,6 +29,9 @@ public class BaiKiemTra {
     private Integer so_cau_hoi;
 
     @Column
+    private Integer so_ca_da_lam;
+
+    @Column
     private String ten;
 
     @Column
