@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build && cp -r build/* ../src/main/resources/static"
+    "deploy": "npm run build && cp -r build/* ../../static"
   },
   "eslintConfig": {
     "extends": [

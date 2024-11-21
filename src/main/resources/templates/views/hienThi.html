@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<a th:href="@{/bai-kiem-tra/view-add}">Them bai kiem tra</a>
+
 <table>
     <thead>
     <tr>
@@ -25,7 +27,7 @@
             <td>[[${bkt.diem_toi_da}]]</td>
             <td>[[${bkt.thoi_gian_lam_bai}]]</td>
             <td>
-                <a th:href="@{/lam-bai/{id}(id=${bkt.id})}">Lam bai</a>
+                <a th:href="@{/lam-bai?idBKT={id}(id=${bkt.id})}">Lam bai</a>
             </td>
         </tr>
     </tbody>

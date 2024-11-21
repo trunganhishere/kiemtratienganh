@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    [[${BKT.ten}]]
+    <div th:each="da:${DapAn}">
+        <form th:action="@{/lam-bai-save}" method="get">
+            <input type="hidden" th:value="${da.id}" name="id">
+            <input type="hidden" th:value="${da.baiKiemTra.id}" name="idBKT">
+            <input type="hidden" th:value="${page+1}" name="page">
+        [[${da.cau_hoi}]]
+        <input type="radio" th:text="${da.dap_an_1}" name="dachon" th:value="${da.dap_an_1}">
+        <input type="radio" th:text="${da.dap_an_2}" name="dachon" th:value="${da.dap_an_2}">
+        <input type="radio" th:text="${da.dap_an_3}" name="dachon" th:value="${da.dap_an_3}">
+        <input type="radio" th:text="${da.dap_an_4}" name="dachon" th:value="${da.dap_an_4}">
+<button>Submit</button>
+</form>
+    </div>
+</body>
+</html>
