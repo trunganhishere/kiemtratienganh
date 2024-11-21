@@ -29,6 +29,9 @@ public class BaiKiemTra {
     private Integer so_cau_hoi;
 
     @Column
+    private String ten;
+
+    @Column
     private Double diem_toi_da;
 
     @Column
@@ -40,10 +43,6 @@ public class BaiKiemTra {
     @JoinColumn(name = "id_danh_gia")
     @ManyToOne
     private DanhGia danh_gia;
-
-    @JoinColumn(name = "id_cau_hoi")
-    @ManyToOne
-    private DapAn dap_an;
 
     @JoinColumn(name = "id_nguoi_lam")
     @ManyToOne

@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,4 +45,12 @@ public class DapAn {
 
     @Column
     private String dap_an_da_chon;
+
+    @JoinColumn(name="id_nguoi_dung")
+    @ManyToOne
+    private NguoiDung nguoiDung;
+
+    @JoinColumn(name="id_bai_kiem_tra")
+    @ManyToOne
+    private BaiKiemTra baiKiemTra;
 }
