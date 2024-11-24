@@ -1,5 +1,7 @@
 package com.example.kiemtratienganh.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
 @AllArgsConstructor
@@ -50,6 +53,7 @@ public class DapAn {
     @ManyToOne
     private NguoiDung nguoiDung;
 
+    @JsonIgnore
     @JoinColumn(name="id_bai_kiem_tra")
     @ManyToOne
     private BaiKiemTra baiKiemTra;

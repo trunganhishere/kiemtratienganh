@@ -4,6 +4,7 @@ import com.example.kiemtratienganh.entity.BaiKiemTra;
 import com.example.kiemtratienganh.entity.DapAn;
 import com.example.kiemtratienganh.repository.BaiKiemTraRepo;
 import com.example.kiemtratienganh.repository.DapAnRepo;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -30,21 +32,39 @@ public class BaiKiemTraController {
     }
 
     @PostMapping("/bai-kiem-tra/add")
+    @ResponseBody
     public String themBaiKiemTra(BaiKiemTra baiKiemTra){
         baiKiemTraRepo.save(baiKiemTra);
-        return "redirect:/dap-an/form-add/"+baiKiemTra.getId();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            // Chuyển đối tượng sang JSON
+            String jsonString = objectMapper.writeValueAsString(baiKiemTra);
+            return jsonString;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @GetMapping("/lam-bai")
+    @ResponseBody
     public String formLamBai(@RequestParam("idBKT") Long idBKT, Model model,@RequestParam(value = "page",defaultValue = "0") Integer page){
-        model.addAttribute("BKT",baiKiemTraRepo.getReferenceById(idBKT));
-        Pageable pageable = PageRequest.of(page,1);
-        model.addAttribute("page",page);
-        model.addAttribute("DapAn",dapAnRepo.getDapAnByIdBaiKiemTra(idBKT,pageable));
-        return "formLamBai";
+        BaiKiemTra bkt = baiKiemTraRepo.getReferenceById(idBKT);
+        List<DapAn> da = dapAnRepo.getDapAnByIdBaiKiemTra(idBKT);
+        bkt.setDanhSachDapAn(da);
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            // Chuyển đối tượng sang JSON
+            String jsonString = objectMapper.writeValueAsString(bkt);
+            return jsonString;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @GetMapping("/lam-bai-save")
+    @ResponseBody
     public String save(@RequestParam("idBKT") Long idBKT,@RequestParam(value = "id",required = false) Long id,@RequestParam(value = "dachon",required = false) String dachon,@RequestParam(value = "page",defaultValue = "0") Integer page){
         DapAn da = dapAnRepo.getReferenceById(id);
         da.setId(id);
@@ -59,11 +79,14 @@ public class BaiKiemTraController {
         bkt.setDiem_so(diem);
         bkt.setId(idBKT);
         baiKiemTraRepo.save(bkt);
-        if (page >= baiKiemTraRepo.getReferenceById(idBKT).getSo_cau_hoi()){
-            return "redirect:/hien-thi";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            // Chuyển đối tượng sang JSON
+            String jsonString = objectMapper.writeValueAsString(da);
+            return jsonString;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else {
-            return "redirect:/lam-bai?idBKT="+idBKT+"&page="+(page);
-        }
+        return null;
     }
 }

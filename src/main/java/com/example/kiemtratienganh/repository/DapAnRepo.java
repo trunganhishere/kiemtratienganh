@@ -10,5 +10,5 @@ import java.util.List;
 public interface DapAnRepo extends JpaRepository<DapAn,Long> {
 
     @Query("select da from DapAn da where da.baiKiemTra.id =:idBKT")
-    List<DapAn> getDapAnByIdBaiKiemTra(Long idBKT, Pageable pageable);
+    List<DapAn> getDapAnByIdBaiKiemTra(Long idBKT);
 }
