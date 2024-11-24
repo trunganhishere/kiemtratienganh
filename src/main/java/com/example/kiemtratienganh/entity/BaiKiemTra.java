@@ -1,18 +1,25 @@
 package com.example.kiemtratienganh.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
 @AllArgsConstructor
@@ -50,5 +57,8 @@ public class BaiKiemTra {
     @JoinColumn(name = "id_nguoi_lam")
     @ManyToOne
     private NguoiDung nguoi_dung;
+
+    @OneToMany(mappedBy = "baiKiemTra", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<DapAn> danhSachDapAn;
 
 }
